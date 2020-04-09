@@ -10,5 +10,5 @@ ln -snf /data/web_static/releases/test/ /data/web_static/current
 chown ubuntu:ubuntu -R /data
 ALS="\\\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}\n"
 sed -i '/^\sserver_name/ a'"$ALS"'' /etc/nginx/sites-enabled/default
-nginx -s reload
+service nginx start
 exit 0
