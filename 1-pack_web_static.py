@@ -3,6 +3,7 @@
 from fabric.api import local, hide
 from datetime import datetime
 
+
 def do_pack():
     """Compresses folder in tgz format"""
 
@@ -17,3 +18,5 @@ def do_pack():
                    .format(loc, name, time))
     if not result.failed:
         return "{}/{}_{}.tgz".format(loc, name, time)
+    else:
+        return None
