@@ -1,6 +1,7 @@
 *
 !*/
 !*.py
+!*.sh
 !*.sql
 !.gitignore
 !README.md
