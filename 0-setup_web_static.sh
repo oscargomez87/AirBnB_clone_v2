@@ -6,9 +6,9 @@ mkdir -p /data/web_static/releases
 mkdir -p /data/web_static/shared
 mkdir -p /data/web_static/releases/test
 echo "Working!"> /data/web_static/releases/test/index.html
-ln -sf /data/web_static/releases/test/ /data/web_static/current/
+ln -snf /data/web_static/releases/test/ /data/web_static/current
 chown ubuntu:ubuntu -R /data
-ALS="\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}"
-sed '/^\sserver_name/ a\'"$ALS"'' /etc/nginx/sites-enabled/default
+ALS="\\\n\tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}\n"
+sed -i '/^\sserver_name/ a'"$ALS"'' /etc/nginx/sites-enabled/default
 service nginx start
-return 0
+exit 0
