@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Fabricfile that distributes web_static contents from AirBnB_v2 fodler"""
+"""Fabricfile that distributes web_static contents from AirBnB_v2 folder"""
 from fabric.api import local, hide, put, run, env, sudo, settings
 from datetime import datetime
-
-
 env.hosts = ['35.231.116.248', '54.83.93.155']
+
+
 def do_pack():
     """Compresses folder in tgz format"""
 
@@ -21,6 +21,7 @@ def do_pack():
         return "{}/{}_{}.tgz".format(loc, name, time)
     else:
         return None
+
 
 def do_deploy(archive_path):
     """Sends archive_path to web server"""
