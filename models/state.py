@@ -6,6 +6,7 @@ from models.city import City
 from sqlalchemy import String, Column
 from sqlalchemy.orm import relationship
 from os import environ
+import models
 
 
 class State(BaseModel, Base):
@@ -33,6 +34,6 @@ class State(BaseModel, Base):
             list_cities = []
             all_cities = models.storage.all(City)
             for city_item in all_cities.items():
-                if city_item.state_id == self.id:
-                    list_cities.append(city_item)
+                if city_item[1].state_id == self.id:
+                    list_cities.append(city_item[1])
             return list_cities
