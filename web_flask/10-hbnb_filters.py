@@ -15,7 +15,8 @@ def close_session(res_or_exep):
 def hbnb_filters():
     """Renders a search bar with selectable state and city"""
     states = storage.all(State).values()
-    return render_template('10-hbnb_filters.html')
+    amenities = storage.all(Amenity).values()
+    return render_template('10-hbnb_filters.html', states=states, amenities=amenities)
 
 
 if __name__ == '__main__':
