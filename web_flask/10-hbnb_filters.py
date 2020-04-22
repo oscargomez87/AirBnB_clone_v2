@@ -14,7 +14,7 @@ def close_session(res_or_exep):
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb_filters():
     """Renders a search bar with selectable state and city"""
-    states = storage.all(States).values()
+    states = storage.all(State).values()
     return render_template('10-hbnb_filters.html')
 
 
