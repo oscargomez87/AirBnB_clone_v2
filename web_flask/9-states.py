@@ -14,6 +14,7 @@ def end(resp_or_exep):
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<string:id>', strict_slashes=False)
 def states_by_id(id=None):
+    """Returns a view of all states or an specific state"""
     states = storage.all(State).values()
     state = {}
     if id is not None:
