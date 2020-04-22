@@ -30,7 +30,7 @@ def pythonrt(text):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def numberrt(n):
-    return 'n is a number'
+    return '{} is a number'.format(n)
 
 
 if __name__ == "__main__":
