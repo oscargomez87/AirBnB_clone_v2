@@ -12,19 +12,18 @@ def end(resp_or_exep):
 
 
 @app.route('/states', strict_slashes=False)
-@app.route('/states/<string:id>', strict_slashes=False)
+@app.route('/states/<id>', strict_slashes=False)
 def states_by_id(id=None):
     """Returns a view of all states or an specific state"""
-    states = storage.all(State).values()
-    state = {}
-    if id is not None:
-        for item in states:
-            if id == item.id:
-                state = item
-                break
+    states = storage.all(State)
+    if id:
+        state_id = "State.{}".format(id)
+        state = {}
+        if state_id in states.keys():
+            state = states[state_id]
         return render_template('9-states.html', state=state,)
     else:
-        return render_template('9-states.html', states=states)
+        return render_template('9-states.html', states=states.values())
 
 
 if __name__ == '__main__':
