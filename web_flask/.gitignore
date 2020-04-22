@@ -1,3 +1,4 @@
 !*.html
 !styles/*.css
+!images/*.png
 !.gitignore
